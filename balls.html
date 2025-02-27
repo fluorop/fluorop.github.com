@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<div id="text">
+		Nothing happeded.
+	</div>
+	<button type="button" onclick="startevent()">Click Me!</button> 
+<script>
+
+var mytext = document.getElementById("text");
+
+function handleMotionEvent(event) {
+	const x = event.accelerationIncludingGravity.x;
+	const y = event.accelerationIncludingGravity.y;
+	const z = event.accelerationIncludingGravity.z;
+
+	// Do something awesome.
+	if (x != null) {
+		mytext.textContent = x.toFixed() + ", " + y.toFixed() + ", " + z.toFixed() + "\n";
+	} else {
+		mytext.textContent = "bruh" + (new Date());
+	}
+}
+
+function startevent() {
+	window.addEventListener("devicemotion", handleMotionEvent, true);
+}
+
+// window.addEventListener('deviceorientation', function(event) {
+// 	console.log(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+// });
+
+</script>
+</body>
+</html>
